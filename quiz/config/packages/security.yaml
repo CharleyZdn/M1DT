@@ -10,7 +10,13 @@ security:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
-            
+
+        main:
+            anonymous: ~
+            form_login:
+                login_path: /login
+                check_path: /login                
+
         login:
             pattern:  ^/api/login
             stateless: true
@@ -30,7 +36,8 @@ security:
 
     access_control:
         - { path: ^/api/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/api,       roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/api,       roles: IS_AUTHENTICATED_ANONYMOUSLY }
+
             # activate different ways to authenticate
 
             # http_basic: true
@@ -41,6 +48,4 @@ security:
 
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
-    access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
+    
