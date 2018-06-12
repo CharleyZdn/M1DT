@@ -1,0 +1,12 @@
+.themes{
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+
+}
+.theme{
+    border: 1px black solid;
+    
+    padding: 5px;
+    margin: 5px;
+}
