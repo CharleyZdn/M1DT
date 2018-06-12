@@ -5,17 +5,17 @@ class Connexion extends Component {
   render() {
     return (
       <div className = "connexion">
-        <div class="formulaire">
-          <div class="ensemble_champ">
+        <div className="formulaire">
+          <div className="ensemble_champ">
             <span>Votre Email</span> 
-            <input type="text" class="champs" id="email" placeholder="Email"/>
+            <input type="text" className="champs" id="email" placeholder="Email"/>
           </div>
-          <div class="ensemble_champ">
+          <div className="ensemble_champ">
             <span>Votre mot de passe</span> 
-            <input type="password" class="champs" id="mdp" placeholder="Mot de passe"/>
+            <input type="password" className="champs" id="mdp" placeholder="Mot de passe"/>
           </div>
-          <div class="ensemble_champ">
-            <input type="button" class="champs btn_commencer" value="CONNEXION"/>
+          <div className="ensemble_champ">
+            <input type="button" className="champs btn_commencer" value="CONNEXION"/>
           </div>
         </div>
         {/* <Routing/> */} 
