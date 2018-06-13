@@ -18,7 +18,15 @@ class AppUsersRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, AppUsers::class);
     }
-
+    public function findOneByUserName($value): ?AppUsers
+    {
+        return $this->createQueryBuilder('a')
+            ->andWhere('a.username = :val')
+            ->setParameter('val', $value)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
 //    /**
 //     * @return AppUsers[] Returns an array of AppUsers objects
 //     */
