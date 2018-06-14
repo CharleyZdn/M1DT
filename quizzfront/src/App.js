@@ -7,17 +7,7 @@ import './App.css';
 
 class App extends Component {
 
-  componentDidMount(){
-    axios
-  .get("http://localhost:8000/api/openquizzdbs")
-  .then(function(response) {
-  //  console.log(response);
-  })
-  .catch(function(error) {
-    console.log(error);
-    console.log("caca");
-  });
-  }
+  
   render() {
     return (
       <div className="App">

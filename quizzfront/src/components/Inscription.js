@@ -9,8 +9,7 @@ class Inscription extends Component {
       username: '',
       email: '',
       password: '',
-      password2: '',
-      isActive: true
+      password2: ''
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -33,12 +32,12 @@ class Inscription extends Component {
 
   axios({
     method: 'post',
-    url: 'http://localhost:8000/api/app_users',
+    url: 'http://localhost:8000/register',
     data: {
-      username: this.state.username,
-      password: this.state.password,
       email: this.state.email,
-      isActive: true
+      username: this.state.username,
+      password: this.state.password,  
+      password_confirmation : this.state.password2
     }
   });
     
