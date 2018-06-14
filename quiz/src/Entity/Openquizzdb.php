@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ApiResource
  * @ORM\Table(name="openquizzdb")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\QuizzRepository")
  */
 class Openquizzdb
 {
@@ -198,6 +198,10 @@ class Openquizzdb
 
         return $this;
     }
+    public function __toString()
+{
+    return (string) $this->myProperty;
+}
 
 
 }
