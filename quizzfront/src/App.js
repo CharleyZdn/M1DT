@@ -11,7 +11,7 @@ class App extends Component {
     axios
   .get("http://localhost:8000/api/openquizzdbs")
   .then(function(response) {
-    console.log(response);
+  //  console.log(response);
   })
   .catch(function(error) {
     console.log(error);

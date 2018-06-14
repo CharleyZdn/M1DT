@@ -18,7 +18,7 @@ class Connexion extends Component {
             <input type="button" className="champs btn_commencer" value="CONNEXION"/>
           </div>
         </div>
-        {/* <Routing/> */} 
+        {/* <Routing/> */}
       </div>
     )
   }

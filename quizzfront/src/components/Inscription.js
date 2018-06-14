@@ -29,20 +29,18 @@ class Inscription extends Component {
 
   handleSubmit(event) {
   if (this.state.password === this.state.password2){  
-    var bcrypt = require('bcryptjs');
-    var salt = bcrypt.genSaltSync(10);
-    var hash = bcrypt.hashSync(this.state.password, salt);
+   
 
-axios({
-  method: 'post',
-  url: 'http://localhost:8000/api/app_users',
-  data: {
-    username: this.state.username,
-    password: hash,
-    email: this.state.email,
-    isActive: true
-  }
-});
+  axios({
+    method: 'post',
+    url: 'http://localhost:8000/api/app_users',
+    data: {
+      username: this.state.username,
+      password: this.state.password,
+      email: this.state.email,
+      isActive: true
+    }
+  });
     
     alert('Vous êtes désormais inscrit : ' + this.state.username);
     event.preventDefault();
