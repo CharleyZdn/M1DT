@@ -1,6 +1,8 @@
 import React from "react";
 import Connexion from './Connexion';
 import Inscription from './Inscription';
+import Quiz from './Quiz';
+import Answers from './Answers';
 import Themes from './Themes';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
@@ -23,6 +25,7 @@ const Routes = () => (
 
       <Route exact path="/" component={Themes} />
       <Route path="/connexion" component={Connexion} />
+      <Route path="/quizz/:handle" component={Quiz} />
       <Route path="/inscription" component={Inscription} />
     </div>
   </Router>

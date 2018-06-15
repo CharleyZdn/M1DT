@@ -1,13 +1,20 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import axios from 'axios';
  
  
-function Question() {
+class Question extends Component {
+	state = {
+		question : "",
+		quizz_id : ""
+	   };
+   
+	
+   render(){
 	return (
-		<h2 className="question">Qestion</h2>
+		<h2 className="question">{this.state.question}</h2>
+	
 		);
+	}
 }
- 
-
  
 export default Question;

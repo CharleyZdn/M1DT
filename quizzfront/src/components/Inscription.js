@@ -17,6 +17,8 @@ class Inscription extends Component {
   }
 
   handleChange(event) {
+    event.preventDefault();
+    console.log("bite");
     const target = event.target;
     const value = target.type === "checkbox" ? target.checked : target.value;
     const name = target.name;
@@ -27,22 +29,32 @@ class Inscription extends Component {
   }
 
   handleSubmit(event) {
-  if (this.state.password === this.state.password2){  
-   
-
-  axios({
-    method: 'post',
-    url: 'http://localhost:8000/register',
-    data: {
-      email: this.state.email,
-      username: this.state.username,
-      password: this.state.password,  
-      password_confirmation : this.state.password2
-    }
-  });
-    
-    alert('Vous êtes désormais inscrit : ' + this.state.username);
     event.preventDefault();
+  if (this.state.password === this.state.password2){  
+
+    axios({
+      method: 'post',
+      url: 'http://localhost:8000/register/',
+      data: {
+        email: this.state.email,
+        username: this.state.username,
+        plaPassword_first: this.state.password,
+        plaPassword_second: this.state.password2,
+        
+      },
+      config: {headers : {'Content-type': 'application/json'}}
+    })
+ 
+  .then(e =>{
+    alert('Vous êtes désormais inscrit : ' + this.state.username);
+  })
+  .catch(e=>{
+    console.log(e);
+  })
+
+
+
+   
   }
 
   else {

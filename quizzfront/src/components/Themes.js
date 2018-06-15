@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
 import axios from 'axios';
 import './Themes.css';
 
@@ -7,7 +9,8 @@ class Themes extends Component {
 
     
         state = {
-         themes : []
+         themes : [],
+     
         };
     
       componentDidMount() {
@@ -43,16 +46,25 @@ class Themes extends Component {
   render() {
     return (
       <div className = "themes">
+      
       {
           this.state.themes.map((theme, index)=>
+          <Link to={{
+            pathname: '/quizz/'+{theme}
+           
+          }}>
           <div className = "theme" key={index}>
             <h2>{theme}</h2>
             <span>Label 2</span>
           </div>
+          </Link>
           )
     }
+    
     </div>
+    
     )
+    
   }
 }
 
