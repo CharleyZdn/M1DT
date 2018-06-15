@@ -20,7 +20,15 @@ class QuizzRepository extends EntityRepository
     {
         return $this->getEntityManager()
         ->createQuery(
-            'SELECT DISTINCT(p.theme) FROM App:Openquizzdb p'
+            'SELECT DISTINCT(p.theme)  FROM App:Openquizzdb p'
+        )
+        ->getResult();
+    }
+    public function findAllOrderedByNameQuest()
+    {
+        return $this->getEntityManager()
+        ->createQuery(
+            'SELECT p.question, p.theme FROM App:Openquizzdb p'
         )
         ->getResult();
     }

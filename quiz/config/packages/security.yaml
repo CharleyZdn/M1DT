@@ -24,6 +24,7 @@ security:
         api:
             pattern:   ^/api
             stateless: true
+            anonymous: true
             lexik_jwt: ~
 
         main:
@@ -31,16 +32,13 @@ security:
             form_login:
                 provider: fos_userbundle
 
-
-
-
             logout:       true
             anonymous:    true
-
+        
     access_control:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
         - { path: ^/api/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/api,       roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/api,       roles: IS_AUTHENTICATED_ANONYMOUSLY }

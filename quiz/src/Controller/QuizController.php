@@ -31,4 +31,23 @@ class QuizController extends Controller
         return $response;
     }
     }
+     /**
+     * @Route("api/openquizzdbs/checkquestion", name="get_question")
+     */
+    public function checkQuestion()
+    {
+        $question = $this->getDoctrine()
+        ->getRepository(Openquizzdb::class)
+        ->findAllOrderedByNameQuest();
+
+    if($question){
+        $response = new Response(
+            json_encode($question),
+            Response::HTTP_OK,
+            array('Content-type', 'application/json')
+        );
+      
+        return $response;
+    }
+    }
 }
