@@ -25,7 +25,7 @@ const Routes = () => (
 
       <Route exact path="/" component={Themes} />
       <Route path="/connexion" component={Connexion} />
-      <Route path="/quizz/:handle" component={Quiz} />
+      <Route path="/quizz/" component={Quiz} />
       <Route path="/inscription" component={Inscription} />
     </div>
   </Router>

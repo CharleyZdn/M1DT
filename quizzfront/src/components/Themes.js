@@ -9,7 +9,8 @@ class Themes extends Component {
 
     
         state = {
-         themes : [],
+         themesID : []
+     
      
         };
     
@@ -22,21 +23,26 @@ class Themes extends Component {
           })
           .then(res => {
             const themesApi = res.data;
-            var themesTmp = [];
-            console.log(themesApi);
+            var themesTmp = new Array();
+            for (var i = 0; i < themesApi.length; i++)
+            {
+              themesTmp[i] = new Array(2);
+            }
+           
+            console.log(themesApi[0]['themeName']);
             for (let i = 0; i < themesApi.length; i++) {
-               //themesTmp[i] = themesApi[i]['1'];
-               
-                 themesTmp.push(themesApi[i]['1'])
-              
+               themesTmp[i]['0'] = themesApi[i]['themeName'];
+               themesTmp[i]['1'] = themesApi[i]['id'];
+                // themesTmp.push(themesApi[i]);
                    //themes[i] = themesApi[i][1]
                
                 
             }
+            console.log(themesTmp);
             this.setState({
-                themes : themesTmp
+                themesID : themesTmp
             });
-            console.log(this.state.themes);
+            console.log(this.state.themesID);
       })
       .catch(err => {
           console.log(err);
@@ -48,14 +54,19 @@ class Themes extends Component {
       <div className = "themes">
       
       {
-          this.state.themes.map((theme, index)=>
+         
+          this.state.themesID.map((theme, index)=>
+                  
           <Link to={{
-            pathname: '/quizz/'+{theme}
+            pathname: '/quizz',
+            state: {
+              themesID : theme[1],
+              name : theme[0]
+            }
            
           }}>
           <div className = "theme" key={index}>
-            <h2>{theme}</h2>
-            <span>Label 2</span>
+        <h2>{theme[0]}</h2>
           </div>
           </Link>
           )

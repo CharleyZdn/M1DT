@@ -2,19 +2,15 @@ import React, { Component } from 'react';
 import axios from 'axios';
  
  
-class Question extends Component {
-	state = {
-		question : "",
-		quizz_id : ""
-	   };
-   
+function Question(props) {
+
 	
-   render(){
+ 
 	return (
-		<h2 className="question">{this.state.question}</h2>
+		<h2 className="question">{props.name}</h2>
 	
 		);
 	}
-}
+
  
 export default Question;

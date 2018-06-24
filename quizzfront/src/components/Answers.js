@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
  
  
 function Answers(props) {
@@ -9,15 +8,16 @@ function Answers(props) {
 				type="radio"
 				className="radioCustomButton"
 				name="radioGroup"
-				checked= ""
+				checked= {props.rep === props.soluce}
 				id=""
-				value=""
-				disabled= ""
+				value={props.rep}
+				disabled={props.soluce}
+				onChange={props.onAnswerSelected}
 				
 			/>
  
-			<label className="radioCustomLabel" htmlFor={props.answerType}>
-				{props.answerContent}
+			<label className="radioCustomLabel" >
+				{props.rep}
 			</label>
  
 		</li>
