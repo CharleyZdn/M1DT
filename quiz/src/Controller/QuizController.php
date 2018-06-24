@@ -32,13 +32,13 @@ class QuizController extends Controller
     }
     }
      /**
-     * @Route("api/openquizzdbs/checkquestion", name="get_question")
+     * @Route("api/openquizzdbs/checkquestion/{id}", name="get_question")
      */
-    public function checkQuestion()
+    public function checkQuestion($id)
     {
         $question = $this->getDoctrine()
         ->getRepository(Openquizzdb::class)
-        ->findAllOrderedByNameQuest();
+        ->findAllOrderedByNameQuest($id);
 
     if($question){
         $response = new Response(

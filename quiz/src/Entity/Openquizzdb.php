@@ -24,11 +24,10 @@ class Openquizzdb
     private $quizzId;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="theme", type="string", length=100, nullable=false)
+     * @ORM\ManyToOne(targetEntity="App\Entity\Allthemes", inversedBy="theme_id")
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $theme = '';
+    private $themeId;
 
     /**
      * @var string
@@ -86,6 +85,7 @@ class Openquizzdb
      */
     private $wiki = '';
 
+   
     public function getQuizzId(): ?int
     {
         return $this->quizzId;
@@ -202,6 +202,8 @@ class Openquizzdb
 {
     return (string) $this->myProperty;
 }
+
+   
 
 
 }
